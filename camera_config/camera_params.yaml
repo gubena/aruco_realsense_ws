@@ -1,0 +1,23 @@
+/**:
+  ros__parameters:
+    video_device: "/dev/video0"
+    camera_name: "laptop_cam"
+    frame_id: "camera_color_optical_frame"
+    io_method: "mmap"
+
+    pixel_format: "mjpeg2rgb"   # YUYV from camera, converted to rgb8 for ROS
+    image_width: 1280
+    image_height: 720
+    framerate: 30.0
+
+    brightness: -1             # -1 = leave at camera default
+    contrast: -1
+    saturation: -1
+    sharpness: -1
+    gain: -1
+    auto_white_balance: true
+    white_balance: 4600
+
+    autoexposure: true         # false for manual exposure
+    exposure: 156              # only used when autoexposure is false (range 9-625)
+    autofocus: false
