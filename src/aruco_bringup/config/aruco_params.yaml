@@ -1,0 +1,6 @@
+aruco_tracker:
+  ros__parameters:
+    cam_base_topic: /camera/camera/color/image_raw
+    marker_dict: 4X4_50
+    marker_size: 0.029
+    output_frame: camera_color_optical_frame

@@ -1,0 +1,35 @@
+aruco_detector:
+  ros__parameters:
+    # --- I/O ---------------------------------------------------------------
+    image_topic: /camera/camera/color/image_raw
+    camera_info_file: /home/silverarrow/ros2_ws/src/aruco_tracker/config/camera_intrinsics.yaml
+    publish_debug_image: true       # only does any work while somebody subscribes
+    debug_image_scale: 1.0          # debug image size relative to the input (<= 1.0)
+    debug_logging: false            # set to true to print per-frame detection stats
+
+    # --- detector ----------------------------------------------------------
+    dictionary: DICT_4X4_100         # DICT_4X4_50 | DICT_4X4_100 | DICT_4X4_250 | DICT_4X4_1000
+    detection_scale: 1.0           # lower is faster on 1080p; 1.0 is full-res and slower
+    subpixel_refine: true           # corner refinement on the FULL-resolution image
+    min_marker_perimeter_rate: 0.01
+    max_marker_perimeter_rate: 4.0
+    polygonal_approx_accuracy_rate: 0.05
+    min_marker_distance_rate: 0.02
+    min_distance_to_border: 1
+    min_corner_distance_rate: 0.05
+    error_correction_rate: 0.3              # default 0.6; try 0.0-0.3
+    max_erroneous_bits_in_border_rate: 0.15 # default 0.35
+    min_otsu_std_dev: 8.0                   # default 5.0; rejects low-contrast candidates
+    corner_refinement_method: 1     # 0=none, 1=subpixel, 2=contour
+    adaptive_thresh_constant: 7
+    adaptive_thresh_win_size_min: 3
+    adaptive_thresh_win_size_max: 251
+    adaptive_thresh_win_size_step: 20
+
+    # --- pose estimation ----------------------------------------------------
+    marker_size: 0.1              # side length of the black square, excluding white margin
+    publish_poses: true
+    publish_tf: true
+    tf_child_prefix: aruco_
+    camera_frame: ""
+    max_reprojection_error_px: 3.0
